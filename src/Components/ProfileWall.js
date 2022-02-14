@@ -97,11 +97,11 @@ function ProfileWall(props) {
                                             <div className="col-md-6">
                                                 <div className="card">
                                                     <div className="d-flex justify-content-between p-2 px-3">
-                                                        <div className="d-flex flex-row align-items-center"> <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" width="50" className="rounded-circle"/>
+                                                        <div className="d-flex flex-row align-items-center"> <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt='profile' width="50" className="rounded-circle"/>
                                                             <div className="d-flex flex-column ml-2"> <span className="font-weight-bold">{userDetails[0].fname?userDetails[0].fname:"Name"} {userDetails[0].lname?userDetails[0].lname:" "}</span> <small className="text-primary">Collegues</small> </div>
                                                         </div>
                                                         <div className="d-flex flex-row mt-1 ellipsis"> <small className="mr-2">20 mins</small> <i className="fa fa-ellipsis-h"></i> </div>
-                                                    </div> <img src="https://i.pinimg.com/originals/f0/74/c0/f074c0f81acff74f5ebcfb2dc8787fe8.jpg" className="img-fluid"/>
+                                                    </div> <img src="https://i.pinimg.com/originals/f0/74/c0/f074c0f81acff74f5ebcfb2dc8787fe8.jpg" alt='profile' className="img-fluid"/>
                                                     <div className="p-2">
                                                         <hr/>
                                                         <div className="d-flex justify-content-between align-items-center">
@@ -111,7 +111,7 @@ function ProfileWall(props) {
                                                         <div className="comments">
                                                             <div id='commenttxt' style={{display:'none'}}>  
                                                                 <div className="d-flex flex-row mb-2"> 
-                                                                    <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" className="rounded-image"/>
+                                                                    <img src="https://i.imgur.com/9AZ2QX1.jpg" alt='profile' width="40" className="rounded-image"/>
                                                                     <div className="d-flex flex-column ml-2"> <span className="name">{userDetails[index].fname?userDetails[index].fname:" "} {userDetails[index].lname?userDetails[index].lname:" "}</span> <small className="comment-text">{comment}</small>
                                                                         <div className="d-flex flex-row align-items-center status"> <small>Like</small> <small>Reply</small></div>
                                                                     </div>

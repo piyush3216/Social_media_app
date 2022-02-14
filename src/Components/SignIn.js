@@ -1,11 +1,9 @@
-import React, { useState } from 'react'  
-import {Link} from "react-router-dom";
+import React, { useState } from 'react'   
 import { useHistory } from "react-router-dom";
 
 function SignIn(props) {
   const[email,setEmail] = useState(""); 
-  const[password,setPassword] = useState("");
-  const[link,setLink] = useState("/signin");   
+  const[password,setPassword] = useState(""); 
   const userDetails = JSON.parse(localStorage.getItem("user"));
 
   let history = useHistory();
