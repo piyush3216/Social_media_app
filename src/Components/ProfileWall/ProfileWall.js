@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import {Link} from "react-router-dom"; 
 
+import { useSelector } from 'react-redux'; 
+  
 import './Profile.css'
 
 function ProfileWall(props) {
-    const userDetails = JSON.parse(localStorage.getItem("user")); 
+    let userDetails = useSelector((state) => state.SetTheData.userData); 
     const [comment,setComment] = useState("");
 
     const handleCommentClick = () =>{
@@ -23,11 +25,11 @@ function ProfileWall(props) {
                             <span className="fs-5 d-none d-sm-inline">Friends</span>
                         </a>
                         {
-                            userDetails.map((curEle) => {
+                            userDetails.map((item) => {
                             return(
-                                <ul className="list-group" key={curEle.email} id="menu">
+                                <ul className="list-group" key={item.email} id="menu">
                                     <li className="nav-item">
-                                        <h6 className='text-info'>{curEle.fname?curEle.fname:"name"} {curEle.lname?curEle.lname:" "}</h6>
+                                        <h6 className='text-info'>{item.fname?item.fname:"name"} {item.lname?item.lname:" "}</h6>
                                     </li>
                                 </ul>
                             )
@@ -44,7 +46,7 @@ function ProfileWall(props) {
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><Link className="dropdown-item" href="/signin">Sign out</Link></li>
+                                <li><Link className="dropdown-item" to="/signin">Sign out</Link></li>
                             </ul>
                         </div>
                     </div>

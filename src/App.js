@@ -5,10 +5,10 @@ import {
   Route,
 } from "react-router-dom";
 
-import ProfileWall from "./Components/ProfileWall";
-import SignIn from "./Components/SignIn";
-import SignUpForm from "./Components/SignUpForm";
-import Navbar from "./Components/Navbar";
+import ProfileWall from "./Components/ProfileWall/ProfileWall";
+import SignIn from "./Components/Authentication/SignIn";
+import SignUpForm from "./Components/Authentication/SignUpForm";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   const[loggedinUser,setLoggedinUser] = useState("");   

@@ -1,15 +1,20 @@
 import React, { useState } from 'react'   
 import { useHistory } from "react-router-dom";
 
+import { useSelector } from 'react-redux'; 
+
 function SignIn(props) {
+  
+  
+  let userDetails = useSelector((state) => state.SetTheData.userData);  
+
   const[email,setEmail] = useState(""); 
-  const[password,setPassword] = useState(""); 
-  const userDetails = JSON.parse(localStorage.getItem("user"));
+  const[password,setPassword] = useState("");  
 
   let history = useHistory();
 
   const handleOnSubmit = () =>{
-    if(userDetails.some(el => el.email === email) && userDetails.some(el => el.password === password)){
+    if(userDetails.some(Element => Element.email === email) && userDetails.some(Element => Element.password === password)){
       history.push("/profile");
       props.setLoggedinUser(email);
    }else{
@@ -18,8 +23,8 @@ function SignIn(props) {
   }  
   return (  
     <>
-      <div className='row my-5' style={{backgroundImage: "url('https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHx8&w=1000&q=80')"}}>
-        <div className="col-md-6 mx-auto">
+      <div className='card d-flex p-5 my-5'>
+        <div className="container shadow p-3 mb-5 rounded"style={{width:"30rem",backgroundColor:"lightgray"}}>
           <div className="form-group">
               <label htmlFor="Email">Email address</label>
               <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter email"/>

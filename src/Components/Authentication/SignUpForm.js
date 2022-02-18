@@ -1,7 +1,12 @@
-import React,{useEffect, useState} from 'react';
-import {Link} from "react-router-dom"; 
+import React,{ useState } from 'react';
+import { Link } from "react-router-dom";   
+
+import { useDispatch } from 'react-redux';
+import { setTheData } from '../../Redux/Actions';
 
 function SignUpForm() { 
+
+   const dispatch = useDispatch(); 
    const [userDetails,setUserDetails]=useState({
     fname:"",
     lname:"",
@@ -16,14 +21,10 @@ function SignUpForm() {
     name = event.target.name;
     value = event.target.value; 
     setUserDetails({...userDetails,[name]:value}); 
-  }
-  
-//   Add Data to localStorage
-   useEffect(() =>{
-     localStorage.setItem('user',JSON.stringify(data)); 
-   },[data])
-
+  };
+//   Add Data to Redux Store
   const handleOnSubmit = () =>{
+    dispatch(setTheData([...data,userDetails])); 
     setData([...data,userDetails]);
     setUserDetails({
       fname:"",
@@ -32,12 +33,11 @@ function SignUpForm() {
       mobile:"",
       password:""
     })
-  } 
+  }  
   return (
     <>
-      <div className="container text-light my-3">
-        <div className="container" style={{backgroundImage: "url('https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHx8&w=1000&q=80')"}}> 
-         
+      <div className="card my-5">
+        <div className="container shadow p-3 mb-5 rounded" style={{width:"30rem",backgroundColor:"lightgray"}}> 
             <div className="form-group ">
                 <label htmlFor="first name">First Name</label>
                 <input type="text" className="form-control" name="fname" value={userDetails.fname} onChange={handleOnchange} placeholder="First Name"/>
@@ -62,7 +62,7 @@ function SignUpForm() {
                 <label htmlFor="Password">Password</label>
                 <input type="password" className="form-control" name="password" value={userDetails.password} onChange={handleOnchange} placeholder="Password"/>
             </div>  
-            <button onClick={handleOnSubmit} className="btn btn-primary my-2">Submit</button> 
+            <button type='button' onClick={handleOnSubmit} className="btn btn-success my-2">Submit</button> 
             <Link to="signin"><button type="signin" className="btn btn-primary my-2 mx-2">Sign In</button></Link>
           
         </div>
